@@ -132,6 +132,8 @@ cp -r butler-skill/butler ~/.claude/skills/
 | `工单/T-xxx.md` | 目标、授权范围、验收标准、汇报记录 |
 | `契约/C-xxx.md` | 多个工单共用的字段、接口、约定 |
 
+在 git 项目里，`.claude/butler/` 会自带一个 `.gitignore`，默认不进 git，Worker 的 worktree 里也不会出现过期副本。想把台账一起提交，删掉这个 `.gitignore` 即可。
+
 **环境建议**：Claude Code 桌面版（Code 标签页）体验最完整，可以开独立子会话、互发消息、在侧边栏查看每个子会话。终端版没有独立子会话，管家会改用 subagent，规则不变。
 
 ## 六、局限
