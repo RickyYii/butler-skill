@@ -150,7 +150,7 @@ When every ticket under the current goal is done:
 
 1. Use `git worktree list` and `git branch` to list the worktrees and branches this job left behind, noting which ticket each belongs to and whether it has been merged.
 2. Attach that list to the end-of-phase report and ask the user which to merge and which to delete. Merging and deleting are both "ask first" actions; once the user agrees, dispatch a Worker to do it — the butler doesn't do it itself.
-3. Once the merge is verified, update the ledger: mark the current goal done (e.g. "done YYYY-MM-DD"), and archive finished tickets per the usual rule.
+3. Once the merge is verified, record what was merged and cleaned up in each related ticket's Log, then update the ledger: mark the current goal done (e.g. "done YYYY-MM-DD"), and archive finished tickets per the usual rule.
 
 ## Report format
 
