@@ -1,5 +1,7 @@
 # butler：给个人工作者的 Super-agent
 
+[English](README.md) | **简体中文**
+
 > A Claude Code skill that borrows DeepSeek's Router–Worker "super-agent" design for solo developers — no servers, no GitHub bots, just one butler session that plans, delegates, verifies and only asks you when it matters.
 
 一个 Claude Code skill。输入 `/butler 任务`，当前窗口就变成"管家"：它负责拆任务、派活、验收、汇报，具体执行交给独立子会话或 subagent，只有拿不准的事才来找你。
