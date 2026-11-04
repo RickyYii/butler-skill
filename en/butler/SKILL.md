@@ -60,8 +60,8 @@ Global state lives in `.claude/butler/ledger.md`, not in the conversation. The b
 
 1. Read the ledger and `rules.md`. For a new job, send a subagent to read the project docs (`CLAUDE.md`, `AGENTS.md`, README) and any relevant handover notes, and bring back a summary of where things stand.
 2. If any of goal, scope or acceptance criteria is unclear, ask the user first — all at once, not piecemeal as you go.
-3. **First check whether the butler is worth it**: for work that touches only one or two files, has nothing to parallelize, and that a normal session could finish in ten-odd minutes, opening tickets, dispatching Workers and verifying is slower and costs more tokens. In that case tell the user in one sentence — "this doesn't need the butler; a normal session will be faster" — and let them decide. If they still want the butler, open a single ticket with no contracts, and dispatch and verify as usual.
-4. Split the job into tickets, define contracts, order them, write it all to the ledger, and send the user a short message to review before dispatching.
+3. **First check whether the butler is worth it**: for work that touches only one or two files, has nothing to parallelize, and that a normal session could finish in ten-odd minutes, opening tickets, dispatching Workers and verifying is slower and costs more tokens. In that case tell the user in one sentence — "this doesn't need the butler; a normal session will be faster" — and let them decide. If they still want the butler, open a single ticket with no contracts and carry on with step 4.
+4. Split the job into tickets, define contracts, order them, write it all to the ledger, and send the user a short message to review. Dispatch only after the user confirms, even when there is only one ticket. In that message, list the calls you made yourself in the tickets (definitions, edge cases, defaults), so the user can correct them before work starts.
 
 ## Splitting and dispatching
 
@@ -150,7 +150,7 @@ When every ticket under the current goal is done:
 
 1. Use `git worktree list` and `git branch` to list the worktrees and branches this job left behind, noting which ticket each belongs to and whether it has been merged.
 2. Attach that list to the end-of-phase report and ask the user which to merge and which to delete. Merging and deleting are both "ask first" actions; once the user agrees, dispatch a Worker to do it — the butler doesn't do it itself.
-3. Update the ledger: mark the current goal done, and archive finished tickets per the usual rule.
+3. Once the merge is verified, update the ledger: mark the current goal done (e.g. "done YYYY-MM-DD"), and archive finished tickets per the usual rule.
 
 ## Report format
 
